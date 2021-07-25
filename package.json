@@ -1,0 +1,14 @@
+{
+  "name": "free-udemy-course-scraper",
+  "version": "1.0.0",
+  "description": "Scrape free Udemy courses from Telegram channels.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Yusuf Bıyık",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
