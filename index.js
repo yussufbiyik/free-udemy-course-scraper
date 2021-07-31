@@ -47,18 +47,19 @@ async function getAllCoursesFromOneChannel(response){
 	};
 }
 
-axios.get(telegramGroup)
+if(config.mode === "all-from-one" || config.mode === "single"){
+	axios.get(telegramGroup)
 	.then(async function (response) {
 		// Success ✔
 		switch(config.mode){
-			default:
-				console.log("Please use a valid mode (single | all-from-one)")
 			case "single":
 				getLatestSingleCourse(response).then(course => console.log(course));
 				break;
 			case "all-from-one":
 				getAllCoursesFromOneChannel(response).then(courses => console.log(courses))
 				break;
+			default:
+				console.log("Please use a valid mode (single | all-from-one)")
 		}
 
 	})
@@ -66,3 +67,6 @@ axios.get(telegramGroup)
 		// Fail ✖
 		console.log(error);
 	})
+}else{
+	console.log("Please use a valid mode (modes: single || all-from-one)")
+}
