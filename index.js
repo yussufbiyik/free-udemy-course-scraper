@@ -32,15 +32,15 @@ async function getAllCoursesFromOneChannel(response){
 	})
 	let allCourses = [];
 	// Make a request for each link in courseLinks to get course titles
-	courseLinks.forEach(link => {
-		axios.get(link).then(function (result) {
+	for await (let link of courseLinks){
+		await axios.get(link).then(function (result) {
 			// Push course data to allCourses
 			allCourses.push({
 				courseName: result.data.split("<").find(word => word.includes("udlite-heading-xl clp-lead__title clp-lead__title--small")).split("\n")[1],
 				courseLink: link
 			});
 		}).catch(err => console.log(err))
-	})
+	}
 	return {
 		results: allCourses,
 		from: config.telegram_channel
@@ -57,12 +57,7 @@ axios.get(telegramGroup)
 				getLatestSingleCourse(response).then(course => console.log(course));
 				break;
 			case "all-from-one":
-				getAllCoursesFromOneChannel(response).then(courses => {
-					// wait for allCourses to be listed
-					setTimeout(() => {
-						console.log(courses)
-					}, 5000);
-				})
+				getAllCoursesFromOneChannel(response).then(courses => console.log(courses))
 				break;
 		}
 
