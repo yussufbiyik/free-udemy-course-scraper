@@ -1,25 +1,20 @@
 # Udemy Free Course Scraper
 Scrape free Udemy courses from Telegram channels.
 
----
-**NOTE**
-
-This script only scrapes one free course at a time (since it was all that i needed) but you can easily change that by altering the source code.
-
----
-
 ## How to use?
 You have to have node.js on your machine.
 
 1. Download Packages
     * Open terminal in the directory of scraper and type `"npm install"`.
 2. Editing `"config.json"`
-    * By default `"config.json"` already has a Telegram channel link on it but you can change the channel to any other Telegram channel that sends their free course links as direct links to Udemy.
-    
-    * If you want to change the link, just change the value of `"telegram_channel"`.
+    * If you want to change the channel, just change the value of `"telegram_channel"`.
+    * If you want to scrape more than one link from a channel, change `"mode"` to `all-from-one` and if you just want to scrape the latest link, you can use `single` mode.
     ---
     **NOTE**
+
     Before adding the link of the channel make sure the link shows inspection of messages in the channel.
+
+    I guess those links mostly starts with `"https://t.me/s/..."`
 
     ---
 3. Running the scraper
@@ -27,8 +22,8 @@ You have to have node.js on your machine.
     * Example Output:
         ```PowerShell
         {
-        name: 'Course Name',
-        url: 'https://www.udemy.com/course/../?couponCode=...'
+            name: 'Course Name',
+            url: 'https://www.udemy.com/course/../?couponCode=...',
+            from: 'https://t.me/s/...'
         }
-        Finished
         ```
