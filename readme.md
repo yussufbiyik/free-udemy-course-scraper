@@ -20,7 +20,7 @@ You have to have node.js on your machine.
 3. Running the scraper
     * Open your terminal in the directory of the scraper and type `node index.js` and it will automatically log the latest free course with it's name to the terminal.
     * Example Output:
-        ```PowerShell
+        ```
         {
             name: 'Course Name',
             url: 'https://www.udemy.com/course/../?couponCode=...',
