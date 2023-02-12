@@ -27,3 +27,5 @@ You have to have node.js on your machine.
             from: 'https://t.me/s/...'
         }
         ```
+## Result Screenshot
+![image](https://user-images.githubusercontent.com/25200573/218332283-9332f1eb-15eb-4456-8932-0a2fb55d668d.png)
